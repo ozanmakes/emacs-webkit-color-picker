@@ -1,0 +1,15 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# Backup files
+*~
+
+# Undo-tree save-files
+*.~undo-tree
+
+/client/node_modules
+/client/build
+/client/yarn-error.log
