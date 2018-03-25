@@ -291,8 +291,10 @@
 (defun webkit-color-picker-show ()
   "Activate color picker."
   (interactive)
-  (or (featurep 'xwidget-internal)
-      (user-error "Your Emacs was not compiled with xwidgets support"))
+  (unless (featurep 'xwidget-internal)
+    (user-error "Your Emacs was not compiled with xwidgets support"))
+  (unless (display-graphic-p)
+    (user-error "webkit-color-picker only works in graphical displays"))
   (let ((color-at-point (webkit-color-picker--color-at-point)))
     (if (buffer-live-p (webkit-color-picker--get-buffer))
         (webkit-color-picker--show)
